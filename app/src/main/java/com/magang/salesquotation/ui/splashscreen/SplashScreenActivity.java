@@ -10,7 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.magang.salesquotation.MainActivity;
+import com.magang.salesquotation.ui.main.MainActivity;
 import com.magang.salesquotation.R;
 
 import butterknife.BindView;
