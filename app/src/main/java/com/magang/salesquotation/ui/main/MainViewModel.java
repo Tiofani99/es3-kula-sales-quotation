@@ -20,4 +20,9 @@ public class MainViewModel extends ViewModel {
     LiveData<PagedList<Sales>> getAllSales(String sort) {
         return new LivePagedListBuilder<>(mSalesRepository.getAllSales(sort), 20).build();
     }
+
+    LiveData<PagedList<Sales>> getSearchData(String search) {
+        return new LivePagedListBuilder<>(mSalesRepository.getSearchData(search), 20).build();
+
+    }
 }

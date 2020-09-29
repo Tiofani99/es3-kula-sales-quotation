@@ -28,6 +28,10 @@ public class SalesRepository {
         return salesDao.getAllSales(query);
     }
 
+    public DataSource.Factory<Integer,Sales>getSearchData(String search){
+        return salesDao.getSearchData(search);
+    }
+
     public void insert(final Sales sales){
         executorService.execute(new Runnable() {
             @Override

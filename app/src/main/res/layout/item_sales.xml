@@ -5,10 +5,10 @@
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
     android:clickable="true"
-    android:focusable="true"
-    app:cardBackgroundColor="@color/colorWhite"
     android:elevation="3dp"
+    android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/colorWhite"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
 
@@ -18,7 +18,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tv_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -29,16 +29,20 @@
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_item_desc"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="3"
             android:text="Ingin bergabung dengan diskusi"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tv_status"
+            android:id="@+id/tv_item_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
