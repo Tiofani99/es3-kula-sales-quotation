@@ -3,7 +3,10 @@ package com.magang.salesquotation.ui.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,10 +39,16 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rvHome;
     @BindView(R.id.searchView)
     SearchView searchView;
+    @BindView(R.id.tv_information)
+    TextView tvInformation;
     SalesPagedListAdapter salesPagedListAdapter;
 
     private final Observer<PagedList<Sales>> salesObserver = salesList -> {
+        if (salesList == null){
+            tvInformation.setVisibility(View.VISIBLE);
+        }
         if (salesList != null) {
+            tvInformation.setVisibility(View.GONE);
             salesPagedListAdapter.submitList(salesList);
         }
     };
