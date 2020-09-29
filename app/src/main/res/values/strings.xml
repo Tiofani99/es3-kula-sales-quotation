@@ -21,4 +21,7 @@
     <string name="asuransi">Asuransi</string>
     <string name="deskripsi_produk">Deskripsi Produk</string>
     <string name="add_data">Tambah Data</string>
+
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
 </resources>
