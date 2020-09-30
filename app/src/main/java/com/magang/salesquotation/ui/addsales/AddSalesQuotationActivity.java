@@ -88,6 +88,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         setUnit();
         initTitle();
         setSwitch();
+        getData();
 
         etQuantity.addTextChangedListener(new TextWatcher() {
             @Override
@@ -97,6 +98,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("Coba","TITLE : "+ Objects.requireNonNull(etName.getText()).toString());
                 calculateAmount();
             }
 
@@ -141,7 +143,9 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         });
 
 
-        btnSubmit.setOnClickListener(view -> buttonAction());
+        btnSubmit.setOnClickListener(view -> {
+            buttonAction();
+        });
     }
 
     @NonNull
@@ -188,13 +192,12 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
     private void initTitle() {
         String actionBarTitle;
         String btnTitle;
-
         if (isEdit) {
             actionBarTitle = getString(R.string.change);
             btnTitle = getString(R.string.update);
 
             if (sales != null) {
-                getData();
+
             }
         } else {
             actionBarTitle = getString(R.string.add);

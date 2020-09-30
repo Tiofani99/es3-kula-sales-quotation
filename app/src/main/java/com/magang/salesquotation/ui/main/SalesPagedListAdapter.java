@@ -19,6 +19,8 @@ import com.magang.salesquotation.data.entity.Sales;
 import com.magang.salesquotation.ui.addsales.AddSalesQuotationActivity;
 import com.magang.salesquotation.ui.detail.DetailActivity;
 
+import org.w3c.dom.Text;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -84,6 +86,8 @@ public class SalesPagedListAdapter extends PagedListAdapter<Sales, SalesPagedLis
         TextView tvDesc;
         @BindView(R.id.tv_item_price)
         TextView tvPrice;
+        @BindView(R.id.tv_item_date)
+        TextView tvDate;
 
         public SalesViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -93,6 +97,7 @@ public class SalesPagedListAdapter extends PagedListAdapter<Sales, SalesPagedLis
         public void bind(Sales sales) {
             tvName.setText(sales.getItemName());
             tvDesc.setText(sales.getDescription());
+            tvDate.setText(sales.getDate());
             Locale localeID = new Locale("in", "ID");
             NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
             tvPrice.setText(formatRupiah.format(Double.parseDouble(String.valueOf(sales.getUnitPrice()))));
