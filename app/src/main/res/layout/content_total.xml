@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/total"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title_subtotal"
+            style="@style/tv_title_detail"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/subtotal" />
+
+        <TextView
+            android:id="@+id/tv_subtotal"
+            style="@style/tv_detail_item"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@id/title_subtotal" />
+
+        <TextView
+            android:id="@+id/title_total_tax"
+            style="@style/tv_title_detail"
+            android:layout_below="@id/tv_subtotal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/total_tax" />
+
+        <TextView
+            android:id="@+id/tv_total_tax"
+            style="@style/tv_detail_item"
+            android:layout_below="@id/tv_subtotal"
+            android:layout_toEndOf="@id/title_total_tax"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

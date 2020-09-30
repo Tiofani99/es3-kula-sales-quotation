@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true">
+
+    <TextView
+        android:id="@+id/title_qty"
+        style="@style/tv_title_detail"
+        android:text="@string/qty" />
+
+    <TextView
+        android:id="@+id/tv_qty"
+        style="@style/tv_detail_item"
+        android:layout_toEndOf="@id/title_qty" />
+
+    <TextView
+        android:id="@+id/title_satuan"
+        style="@style/tv_title_detail"
+        android:layout_below="@id/tv_qty"
+        android:text="@string/satuan" />
+
+    <TextView
+        android:id="@+id/tv_satuan"
+        style="@style/tv_detail_item"
+        android:layout_below="@id/tv_qty"
+        android:layout_toEndOf="@id/title_satuan" />
+
+    <TextView
+        android:id="@+id/title_Unit_Price"
+        style="@style/tv_title_detail"
+        android:layout_below="@id/tv_satuan"
+        android:text="@string/unit_price" />
+
+    <TextView
+        android:id="@+id/tv_unit_price"
+        style="@style/tv_detail_item"
+        android:layout_below="@id/tv_satuan"
+        android:layout_toEndOf="@id/title_Unit_Price" />
+
+    <TextView
+        android:id="@+id/title_discount"
+        style="@style/tv_title_detail"
+        android:layout_below="@id/tv_unit_price"
+        android:text="@string/disc" />
+
+    <TextView
+        android:id="@+id/tv_discount"
+        style="@style/tv_detail_item"
+        android:layout_below="@id/tv_unit_price"
+        android:layout_toEndOf="@id/title_discount" />
+
+    <TextView
+        android:id="@+id/title_Tax"
+        style="@style/tv_title_detail"
+        android:layout_below="@id/tv_discount"
+        android:text="@string/tax" />
+
+    <TextView
+        android:id="@+id/tv_tax"
+        style="@style/tv_detail_item"
+        android:layout_below="@id/tv_discount"
+        android:layout_toEndOf="@id/title_Unit_Price"
+        android:layout_marginBottom="16dp" />
+
+
+</RelativeLayout>
