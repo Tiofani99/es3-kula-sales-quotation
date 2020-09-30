@@ -20,6 +20,19 @@
                 android:layout_height="200dp"
                 android:background="@color/colorPrimaryDark" />
 
+            <TextView
+                android:id="@+id/tv_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="22dp"
+                android:text="@string/detail_item"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
+
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_detail"
                 android:layout_width="match_parent"
@@ -29,6 +42,97 @@
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorWhite"
                 android:layout_below="@id/view">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_nama_item"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/view_blue"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:paddingStart="16dp"
+                        android:paddingTop="22dp"
+                        android:text="@string/nama_item"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorblak"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlSymmetry" />
+
+                    <TextView
+                        android:id="@+id/tv_date_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:paddingEnd="8dp"
+                        android:text="@string/date"
+                        android:textSize="16sp"
+                        tools:ignore="RtlSymmetry" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorblak" />
+
+
+                    <TextView
+                        android:id="@+id/tv_item"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/view_blue"
+                        android:ellipsize="end"
+                        android:paddingStart="16dp"
+                        android:paddingTop="22dp"
+                        android:text="@string/Item"
+                        android:textColor="@color/colorblak"
+                        android:textSize="16sp"
+                        tools:ignore="RtlSymmetry" />
+                    <TextView
+                        android:id="@+id/tv_Item_Description"
+                        style="@style/tv_detail_item"
+                        android:layout_below="@id/view_blue"
+                        android:text="@string/item_description" />
+                    <TextView
+                        android:id="@+id/tv_Qty"
+                        style="@style/tv_detail_item"
+                        android:layout_below="@id/view_blue"
+                        android:text="@string/qty" />
+                    <TextView
+                        android:id="@+id/tv_Satuan"
+                        style="@style/tv_detail_item"
+                        android:layout_below="@id/view_blue"
+                        android:text="@string/satuan" />
+                    <TextView
+                        android:id="@+id/tv_Unit_Price"
+                        style="@style/tv_detail_item"
+                        android:layout_below="@id/view_blue"
+                        android:text="@string/unit_price" />
+                    <TextView
+                        android:id="@+id/tv_Disc"
+                        style="@style/tv_detail_item"
+                        android:layout_below="@id/view_blue"
+                        android:text="@string/disc" />
+                    <TextView
+                        android:id="@+id/tv_Tax"
+                        style="@style/tv_detail_item"
+                        android:layout_below="@id/view_blue"
+                        android:text="@string/tax" />
+                    <TextView
+                        android:id="@+id/tv_Amount"
+                        style="@style/tv_detail_item"
+                        android:layout_below="@id/view_blue"
+                        android:text="@string/amount" />
+                    <TextView
+                        android:id="@+id/tv_Status"
+                        style="@style/tv_detail_item"
+                        android:layout_below="@id/view_blue"
+                        android:text="@string/status" />
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -37,6 +141,17 @@
                 android:layout_height="200dp"
                 android:layout_below="@id/cv_detail"
                 android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/tv_subtotal"
+                    style="@style/tv_detail_item"
+                    android:layout_below="@id/view_blue"
+                    android:text="@string/subtotal" />
+                <TextView
+                    android:id="@+id/tv_total_tax"
+                    style="@style/tv_detail_item"
+                    android:layout_below="@id/tv_subtotal"
+                    android:text="@string/total_tax" />
 
             </androidx.cardview.widget.CardView>
 

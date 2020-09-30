@@ -41,6 +41,19 @@
     <string name="changed">Satu item berhasil diubah</string>
     <string name="deleted">Satu item berhasil dihapus</string>
     <string name="information">Tidak ada data ditemukan</string>
+    <string name="detail_item">Detail Item</string>
+    <string name="nama_item">Nama Item</string>
+    <string name="Item">Item</string>
+    <string name="item_description">Item Description</string>
+    <string name="qty">Qty</string>
+    <string name="satuan">Satuan</string>
+    <string name="unit_price">Unit Price</string>
+    <string name="disc">Disc %</string>
+    <string name="tax">Tax</string>
+    <string name="amount">Amount</string>
+    <string name="status">Status</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="total_tax">Tax %</string>
 
     <array name="unit">
         <item>Unit</item>
