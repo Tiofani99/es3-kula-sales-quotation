@@ -35,14 +35,16 @@ public class Sales implements Parcelable {
     @ColumnInfo(name = "amount")
     private String amount;
 
+    @ColumnInfo(name = "tax")
+    private String tax;
+
     @ColumnInfo(name = "date")
     private String date;
-
 
     public Sales() {
     }
 
-    public Sales(int id, String itemName, String description, String quantity, String unit, String unitPrice, String discount, String amount, String date) {
+    public Sales(int id, String itemName, String description, String quantity, String unit, String unitPrice, String discount, String amount, String tax, String date) {
         this.id = id;
         this.itemName = itemName;
         this.description = description;
@@ -51,6 +53,7 @@ public class Sales implements Parcelable {
         this.unitPrice = unitPrice;
         this.discount = discount;
         this.amount = amount;
+        this.tax = tax;
         this.date = date;
     }
 
@@ -63,6 +66,7 @@ public class Sales implements Parcelable {
         unitPrice = in.readString();
         discount = in.readString();
         amount = in.readString();
+        tax = in.readString();
         date = in.readString();
     }
 
@@ -142,6 +146,14 @@ public class Sales implements Parcelable {
         this.amount = amount;
     }
 
+    public String getTax() {
+        return tax;
+    }
+
+    public void setTax(String tax) {
+        this.tax = tax;
+    }
+
     public String getDate() {
         return date;
     }
@@ -165,6 +177,7 @@ public class Sales implements Parcelable {
         parcel.writeString(unitPrice);
         parcel.writeString(discount);
         parcel.writeString(amount);
+        parcel.writeString(tax);
         parcel.writeString(date);
     }
 }

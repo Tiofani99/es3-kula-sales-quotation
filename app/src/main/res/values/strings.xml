@@ -32,8 +32,8 @@
     <string name="cancel">Batal</string>
     <string name="empty">Field can not be blank</string>
     <string name="update">Update</string>
-    <string name="change">Ubah</string>
-    <string name="add">Tambah</string>
+    <string name="change">Ubah Data</string>
+    <string name="add">Tambah Data</string>
     <string name="save">Simpan</string>
     <string name="message_cancel">Apakah anda ingin membatalkan perubahan pada form?</string>
     <string name="message_delete">Apakah anda yakin ingin menghapus item ini?</string>
@@ -41,4 +41,9 @@
     <string name="changed">Satu item berhasil diubah</string>
     <string name="deleted">Satu item berhasil dihapus</string>
     <string name="information">Tidak ada data ditemukan</string>
+
+    <array name="unit">
+        <item>Unit</item>
+        <item>Pcs</item>
+    </array>
 </resources>

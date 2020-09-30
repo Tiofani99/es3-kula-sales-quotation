@@ -30,7 +30,7 @@ public abstract class SalesRoomDatabase extends RoomDatabase {
                             .addCallback(new RoomDatabase.Callback() {
                                 @Override
                                 public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                                    add();
+//                                    add();
                                 }
                             })
                             .build();
