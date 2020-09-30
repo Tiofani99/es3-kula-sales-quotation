@@ -86,7 +86,6 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         salesAddViewModel = obtainViewModel(AddSalesQuotationActivity.this);
 
         setUnit();
-        getData();
         initTitle();
         setSwitch();
 
@@ -142,9 +141,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         });
 
 
-        btnSubmit.setOnClickListener(view -> {
-            buttonAction();
-        });
+        btnSubmit.setOnClickListener(view -> buttonAction());
     }
 
     @NonNull
@@ -157,7 +154,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
     private void setUnit() {
         String[] dataCategory = getResources().getStringArray(R.array.unit);
         ArrayList<String> listData = new ArrayList<>(Arrays.asList(dataCategory));
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, listData);
 
         etUnit.setAdapter(adapter);
@@ -197,7 +194,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
             btnTitle = getString(R.string.update);
 
             if (sales != null) {
-                //Ketika update
+                getData();
             }
         } else {
             actionBarTitle = getString(R.string.add);
@@ -352,19 +349,16 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         alertDialogBuilder
                 .setMessage(dialogMessage)
                 .setCancelable(false)
-                .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (isDialogClose) {
-                            finish();
-                        } else {
-                            salesAddViewModel.delete(sales);
+                .setPositiveButton(getString(R.string.yes), (dialogInterface, i) -> {
+                    if (isDialogClose) {
+                        finish();
+                    } else {
+                        salesAddViewModel.delete(sales);
 
-                            Intent intent = new Intent();
-                            intent.putExtra(EXTRA_POSITION, position);
-                            setResult(RESULT_DELETE, intent);
-                            finish();
-                        }
+                        Intent intent = new Intent();
+                        intent.putExtra(EXTRA_POSITION, position);
+                        setResult(RESULT_DELETE, intent);
+                        finish();
                     }
                 })
 
