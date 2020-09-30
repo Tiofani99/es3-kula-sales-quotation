@@ -261,7 +261,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         String description = Objects.requireNonNull(etDesc.getText()).toString().trim();
         String quantity = Objects.requireNonNull(etQuantity.getText()).toString().trim();
         String unitPrice = Objects.requireNonNull(etPrice.getText()).toString().trim();
-        String discount = String.valueOf(checkData(Objects.requireNonNull(etPrice.getText()).toString().trim()));
+        String discount = String.valueOf(checkData(Objects.requireNonNull(etDiscount.getText()).toString().trim()));
         String unit = Objects.requireNonNull(etUnit.getText()).toString().trim();
 
         if (title.isEmpty()) {
