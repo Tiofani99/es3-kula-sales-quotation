@@ -30,7 +30,7 @@ public abstract class SalesRoomDatabase extends RoomDatabase {
                             .addCallback(new RoomDatabase.Callback() {
                                 @Override
                                 public void onCreate(@NonNull SupportSQLiteDatabase db) {
-//                                    add();
+                                    add();
                                 }
                             })
                             .build();
@@ -46,16 +46,17 @@ public abstract class SalesRoomDatabase extends RoomDatabase {
             @Override
             public void run() {
                 final List<Sales> list = new ArrayList<>();
-                for (int i = 1 ; i <= 9 ; i++){
+                for (int i = 1 ; i <= 100 ; i++){
                     Sales dummySales = new Sales();
-                    dummySales.setItemName("Tugas "+i);
+                    dummySales.setItemName("Barang ke "+i);
                     dummySales.setAmount(""+i);
                     dummySales.setDate(DateHelper.getCurrentDate());
                     dummySales.setDiscount(""+i);
                     dummySales.setQuantity(""+i);
                     dummySales.setUnit("Unit");
                     dummySales.setUnitPrice("100000");
-                    dummySales.setDescription("Belajar Modul "+i);
+                    dummySales.setTax("false");
+                    dummySales.setDescription("Mantap ke "+i);
                     list.add(dummySales);
                 }
 
