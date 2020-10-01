@@ -7,10 +7,10 @@ import androidx.lifecycle.ViewModel;
 import com.magang.salesquotation.data.SalesRepository;
 import com.magang.salesquotation.data.entity.Sales;
 
-public class SalesAddViewModel extends ViewModel {
+public class AddSalesViewModel extends ViewModel {
     private SalesRepository mSalesRepository;
 
-    public SalesAddViewModel(Application application) {
+    public AddSalesViewModel(Application application) {
         mSalesRepository = new SalesRepository(application);
     }
 

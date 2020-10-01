@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.magang.salesquotation.ui.addsales.SalesAddViewModel;
+import com.magang.salesquotation.ui.addsales.AddSalesViewModel;
 import com.magang.salesquotation.ui.main.MainViewModel;
 
 public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
@@ -36,8 +36,8 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if (modelClass.isAssignableFrom(MainViewModel.class)) {
             return (T) new MainViewModel(mApplication);
-        }else if(modelClass.isAssignableFrom(SalesAddViewModel.class)){
-            return (T) new SalesAddViewModel(mApplication);
+        }else if(modelClass.isAssignableFrom(AddSalesViewModel.class)){
+            return (T) new AddSalesViewModel(mApplication);
         }
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
     }

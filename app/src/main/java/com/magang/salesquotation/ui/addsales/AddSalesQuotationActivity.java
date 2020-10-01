@@ -76,7 +76,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
     private String amount;
     private Sales sales;
     private int position;
-    private SalesAddViewModel salesAddViewModel;
+    private AddSalesViewModel salesAddViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,10 +149,10 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
     }
 
     @NonNull
-    private SalesAddViewModel obtainViewModel(AddSalesQuotationActivity addSalesQuotationActivity) {
+    private AddSalesViewModel obtainViewModel(AddSalesQuotationActivity addSalesQuotationActivity) {
         ViewModelFactory factory = ViewModelFactory.getInstance(addSalesQuotationActivity.getApplication());
 
-        return ViewModelProviders.of(addSalesQuotationActivity, factory).get(SalesAddViewModel.class);
+        return ViewModelProviders.of(addSalesQuotationActivity, factory).get(AddSalesViewModel.class);
     }
 
     private void setUnit() {
