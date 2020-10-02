@@ -7,6 +7,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+//Entity dan tabel yang akan dibuat pada sqlite
 @Entity
 public class Sales implements Parcelable {
 

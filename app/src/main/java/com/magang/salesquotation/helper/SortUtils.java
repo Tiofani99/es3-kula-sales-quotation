@@ -2,6 +2,7 @@ package com.magang.salesquotation.helper;
 
 import androidx.sqlite.db.SimpleSQLiteQuery;
 
+//Untuk membuat sorting ( tidak digunakan) hanya menggunakan newest
 public class SortUtils {
     public static final String NEWEST = "Newest";
     public static final String OLDEST = "Oldest";

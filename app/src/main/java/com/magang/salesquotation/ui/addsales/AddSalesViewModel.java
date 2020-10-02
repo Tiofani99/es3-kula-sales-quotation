@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel;
 import com.magang.salesquotation.data.SalesRepository;
 import com.magang.salesquotation.data.entity.Sales;
 
+//ViewModel, berfungsi penghubung antara data repository dengan activity
 public class AddSalesViewModel extends ViewModel {
     private SalesRepository mSalesRepository;
 

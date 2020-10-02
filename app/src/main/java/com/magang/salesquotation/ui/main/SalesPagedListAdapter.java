@@ -29,6 +29,7 @@ import butterknife.ButterKnife;
 
 public class SalesPagedListAdapter extends PagedListAdapter<Sales, SalesPagedListAdapter.SalesViewHolder> {
 
+    //Callback jika sewaktu-waktu data berubah
     private static DiffUtil.ItemCallback<Sales> DIFF_CALLBACK =
             new DiffUtil.ItemCallback<Sales>() {
                 @Override
@@ -49,6 +50,7 @@ public class SalesPagedListAdapter extends PagedListAdapter<Sales, SalesPagedLis
         this.activity = activity;
     }
 
+    //Untuk mendapatkan layout apa yang akan digunakan
     @NonNull
     @Override
     public SalesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -57,18 +59,21 @@ public class SalesPagedListAdapter extends PagedListAdapter<Sales, SalesPagedLis
     }
 
 
+    //Menginisiasi data yang sudah didapatkan serta menampilkannya
     @Override
     public void onBindViewHolder(@NonNull final SalesViewHolder holder, int position) {
         final Sales sales = getItem(position);
         if (sales != null) {
             holder.bind(sales);
             holder.itemView.setOnClickListener(view -> {
+                //Intent serta menaruh data kepada DetailActivity sehingga data dapat diteruskan
                 Intent intent = new Intent(activity, DetailActivity.class);
                 intent.putExtra(DetailActivity.EXTRA_POSITION, holder.getAdapterPosition());
                 intent.putExtra(DetailActivity.EXTRA_SALES, sales);
                 activity.startActivity(intent);
             });
 
+            //Fungsi ketika terjadi tekan ditahan lama
             holder.itemView.setOnLongClickListener(view -> {
                 holder.setLong(sales,holder.getAdapterPosition());
                 return false;
@@ -79,6 +84,7 @@ public class SalesPagedListAdapter extends PagedListAdapter<Sales, SalesPagedLis
     }
 
 
+    //View Holder
     public class SalesViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tv_item_name)
         TextView tvName;
@@ -94,6 +100,7 @@ public class SalesPagedListAdapter extends PagedListAdapter<Sales, SalesPagedLis
             ButterKnife.bind(this, itemView);
         }
 
+        //Untuk set Data
         public void bind(Sales sales) {
             tvName.setText(sales.getItemName());
             tvDesc.setText(sales.getDescription());
@@ -103,13 +110,16 @@ public class SalesPagedListAdapter extends PagedListAdapter<Sales, SalesPagedLis
             tvPrice.setText(formatRupiah.format(Double.parseDouble(String.valueOf(sales.getUnitPrice()))));
         }
 
+        //Fungsi untuk tahan lama
         public void setLong(Sales sales, int position) {
 
+            //Menampilkan dialog
             AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
             String update = activity.getResources().getString(R.string.update);
             String[] options = {update};
 
             builder.setItems(options, (dialogInterface, i) -> {
+                //Ketika update
                 if (i == 0) {
                     Intent intent = new Intent(activity, AddSalesQuotationActivity.class);
                     intent.putExtra(AddSalesQuotationActivity.EXTRA_POSITION, position);

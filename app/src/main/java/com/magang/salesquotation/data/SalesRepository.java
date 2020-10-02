@@ -13,6 +13,7 @@ import com.magang.salesquotation.helper.SortUtils;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+//Repository sumber semua data di sini
 public class SalesRepository {
     private SalesDao salesDao;
     private ExecutorService executorService;
@@ -23,15 +24,18 @@ public class SalesRepository {
         salesDao = db.salesDao();
     }
 
+    //Untuk mendapatkan semua data
     public DataSource.Factory<Integer,Sales>getAllSales(String sort){
         SimpleSQLiteQuery query = SortUtils.getSortedQuery(sort);
         return salesDao.getAllSales(query);
     }
 
+    //Untuk mendapatkan data tertentu yang dicari
     public DataSource.Factory<Integer,Sales>getSearchData(String search){
         return salesDao.getSearchData(search);
     }
 
+    //Insert Data
     public void insert(final Sales sales){
         executorService.execute(new Runnable() {
             @Override
@@ -41,6 +45,7 @@ public class SalesRepository {
         });
     }
 
+    //Delete Data
     public void delete(final Sales sales){
         executorService.execute(new Runnable() {
             @Override
@@ -50,6 +55,7 @@ public class SalesRepository {
         });
     }
 
+    //Update Data
     public void update(final Sales sales){
         executorService.execute(new Runnable() {
             @Override

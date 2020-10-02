@@ -14,6 +14,7 @@ import com.magang.salesquotation.data.entity.Sales;
 
 import java.util.List;
 
+//Interface agar mudah terhubung ke setiap viewmodel
 @Dao
 public interface SalesDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)

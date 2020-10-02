@@ -36,9 +36,11 @@ import butterknife.ButterKnife;
 
 public class AddSalesQuotationActivity extends AppCompatActivity {
 
+    //Variabel untuk mendapatkan parcelable
     public static final String EXTRA_SALES = "extra_sales";
     public static final String EXTRA_POSITION = "extra_position";
 
+    //Untuk request dan result activity
     public static final int REQUEST_ADD = 100;
     public static final int RESULT_ADD = 101;
     public static final int REQUEST_UPDATE = 200;
@@ -90,6 +92,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         setSwitch();
         getData();
 
+        //fungsi yang dijalankan ketika pada quantity, discount, dan price harganya ganti
         etQuantity.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -148,6 +151,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         });
     }
 
+    //Menginisiasi ViewModel
     @NonNull
     private AddSalesViewModel obtainViewModel(AddSalesQuotationActivity addSalesQuotationActivity) {
         ViewModelFactory factory = ViewModelFactory.getInstance(addSalesQuotationActivity.getApplication());
@@ -155,6 +159,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         return ViewModelProviders.of(addSalesQuotationActivity, factory).get(AddSalesViewModel.class);
     }
 
+    //menampilkan combobox pada pilihan unit
     private void setUnit() {
         String[] dataCategory = getResources().getStringArray(R.array.unit);
         ArrayList<String> listData = new ArrayList<>(Arrays.asList(dataCategory));
@@ -164,6 +169,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         etUnit.setAdapter(adapter);
     }
 
+    //mendapatkan data yang dikirim ketika terjadi kondisi update
     private void getData() {
         sales = getIntent().getParcelableExtra(EXTRA_SALES);
         if (sales != null) {
@@ -189,6 +195,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         }
     }
 
+    //Inisiasi Judul, dan button
     private void initTitle() {
         String actionBarTitle;
         String btnTitle;
@@ -204,6 +211,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
             btnTitle = getString(R.string.save);
         }
 
+        //Mengatur title pada toolbar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(actionBarTitle);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -213,6 +221,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         btnSubmit.setText(btnTitle);
     }
 
+    //menghitung amount
     private void calculateAmount() {
         String sQuantity = Objects.requireNonNull(etQuantity.getText()).toString().trim();
         String sUnitPrice = Objects.requireNonNull(etPrice.getText()).toString().trim();
@@ -237,6 +246,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         tvAmount.setText(formatRupiah.format(Double.parseDouble(String.valueOf(total))));
     }
 
+    //mengecek data apakah ada yang kosong
     private double checkData(String data) {
         if (data.equals("")) {
             return 0;
@@ -245,6 +255,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         }
     }
 
+    //mengatur switch tax
     private void setSwitch() {
         switchCompat.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {
@@ -255,6 +266,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
             calculateAmount();
         });
     }
+
 
     private void buttonAction() {
         String title = Objects.requireNonNull(etName.getText()).toString().trim();
@@ -303,6 +315,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
     }
 
 
+    //menampilkan menu trash
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (isEdit) {
@@ -312,13 +325,16 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    //Kondisi jika terjadi action pada menu toolbar
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            //delete
             case R.id.action_delete:
                 showAlertDialog(ALERT_DIALOG_DELETE);
                 break;
 
+            // back
             case android.R.id.home:
                 showAlertDialog(ALERT_DIALOG_CLOSE);
                 break;
@@ -328,12 +344,15 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //button back
     @Override
     public void onBackPressed() {
         showAlertDialog(ALERT_DIALOG_CLOSE);
     }
 
+    //menampilkan dialog
     private void showAlertDialog(int type) {
+        //dialog tutup
         final boolean isDialogClose = type == ALERT_DIALOG_CLOSE;
         String dialogTitle;
         String dialogMessage;
@@ -348,7 +367,7 @@ public class AddSalesQuotationActivity extends AppCompatActivity {
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
-        alertDialogBuilder.setTitle(dialogTitle);
+        alertDialogBuilder.setTitle(dialogTitle);//Judul dialog
         alertDialogBuilder
                 .setMessage(dialogMessage)
                 .setCancelable(false)

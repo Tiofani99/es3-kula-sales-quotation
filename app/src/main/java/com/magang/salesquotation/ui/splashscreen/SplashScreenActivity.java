@@ -32,7 +32,9 @@ public class SplashScreenActivity extends AppCompatActivity {
         setSplash();
     }
 
+    //Membuat splashscreen dengan animasi sederhana
     private void setSplash(){
+        //Mengambil data animasi
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.splash_anim);
         ivLogo.startAnimation(animation);
         tvTitleSplash.startAnimation(animation);

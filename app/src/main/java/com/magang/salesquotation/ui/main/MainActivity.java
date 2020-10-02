@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvInformation;
     SalesPagedListAdapter salesPagedListAdapter;
 
+    //Observer
     private final Observer<PagedList<Sales>> salesObserver = salesList -> {
         if (salesList == null){
             tvInformation.setVisibility(View.VISIBLE);
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     };
     private MainViewModel mainViewModel;
 
+    //Inisiasi ViewModel
     @NonNull
     private static MainViewModel obtainViewModel(AppCompatActivity activity) {
         ViewModelFactory factory = ViewModelFactory.getInstance(activity.getApplication());
@@ -70,18 +72,23 @@ public class MainActivity extends AppCompatActivity {
         refreshData();
 
 
+        //Ketika tombol tambah data ditekan
         btnAddData.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, AddSalesQuotationActivity.class);
+            //mengirimkan request add karena akan menambahkan data bukan mengedit
             startActivityForResult(intent, AddSalesQuotationActivity.REQUEST_ADD);
         });
 
+        //mencari data
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            //ketika klik search pada keyboard
             @Override
             public boolean onQueryTextSubmit(String query) {
                 searchData(query);
                 return false;
             }
 
+            //ketika terjadi perubahan data pada searchview
             @Override
             public boolean onQueryTextChange(String newText) {
                 searchData(newText);
@@ -89,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //ketika tombol x pada searchview diklik maka semua data akan ditampilkan lagi
         searchView.setOnCloseListener(() -> {
             showData();
             return false;
@@ -113,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         mainViewModel.getSearchData(search).observe(this, salesObserver);
     }
 
+    //Untuk mendapatkan data dari activity lain ketika terjadi method finish() di activity lain
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

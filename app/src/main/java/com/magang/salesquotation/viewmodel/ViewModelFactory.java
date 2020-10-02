@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.magang.salesquotation.ui.addsales.AddSalesViewModel;
 import com.magang.salesquotation.ui.main.MainViewModel;
 
+//ViewModelFactory membuat sendiri karena kasusnya berbeda
 public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
     private static volatile ViewModelFactory INSTANCE;
 

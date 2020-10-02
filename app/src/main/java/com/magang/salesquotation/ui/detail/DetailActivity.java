@@ -59,6 +59,7 @@ public class DetailActivity extends AppCompatActivity {
         getData();
     }
 
+    //Inisiasi Title, collapsing toolbar
     private void initTitle() {
         setSupportActionBar(toolbar);
         collapsingToolbarLayout.setTitle("Detail Item");
@@ -75,6 +76,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
 
+    //Mendapatkan data dari intent
     @SuppressLint("SetTextI18n")
     private void getData() {
         Sales sales = getIntent().getParcelableExtra(EXTRA_SALES);
@@ -103,12 +105,14 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
+    //mengconvert agar menampilkan bilangan dalam format rupiah
     private void convert(TextView textView, String price) {
         Locale localeID = new Locale("in", "ID");
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
         textView.setText(formatRupiah.format(Double.parseDouble(String.valueOf(price))));
     }
 
+    //Tombol back pojok kiri atas
     @Override
     public boolean onSupportNavigateUp() {
         finish();
